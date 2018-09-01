@@ -45,6 +45,7 @@ func writeFromChan(writer *SafeCSVWriter, c <-chan interface{}) error {
 		if err := writer.Write(csvHeadersLabels); err != nil {
 			return err
 		}
+		writer.Flush()
 		return nil
 	}
 	if err := write(inValue); err != nil {
